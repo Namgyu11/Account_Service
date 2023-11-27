@@ -146,7 +146,7 @@ class AccountServiceTest {
     }
 
     @Test
-    @DisplayName("해당 유저 없음 - 계좌 혜지 실패")
+    @DisplayName("해당 유저 없음 - 계좌 해지 실패")
     void deleteAccount_UserNotFound() {
         //given
         given(accountUserRepository.findById(anyLong()))
@@ -161,7 +161,7 @@ class AccountServiceTest {
     }
 
     @Test
-    @DisplayName("해당 계좌 없음 - 계좌 혜지 실패")
+    @DisplayName("해당 계좌 없음 - 계좌 해지 실패")
     void deleteAccount_AccountNotFound() {
         //given
         AccountUser user = AccountUser.builder()
