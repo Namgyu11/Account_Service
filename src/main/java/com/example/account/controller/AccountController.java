@@ -6,7 +6,6 @@ import com.example.account.dto.AccountInfo;
 import com.example.account.dto.CreateAccount;
 import com.example.account.dto.DeleteAccount;
 import com.example.account.service.AccountService;
-import com.example.account.service.RedisTestService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.validator.constraints.LuhnCheck;
@@ -22,7 +21,6 @@ public class AccountController {
     // 외부에서는 컨트롤러로 접속, 컨트롤러는 서비스 , 서비스는 레퍼지토리
     // 컨트롤러는 서비스 | Controller -> Service
     private final AccountService accountService;
-    private final RedisTestService redisTestService;
 
     @PostMapping("/account")
     public CreateAccount.Response createAccount(
@@ -59,10 +57,6 @@ public class AccountController {
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/get-lock")
-    public String getLock() {
-        return redisTestService.getLock();
-    }
 
 
     @GetMapping("/account/{id}")
